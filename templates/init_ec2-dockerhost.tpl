@@ -24,7 +24,7 @@ cd ssoapt-nginx-certbot-golang-postgres-php
 export AWS=yes
 
 # get let's encrypt certificate
-sudo ./init-letsencrypt.sh
+sudo -E ./init-letsencrypt.sh
 
 # start services
 sudo docker-compose up -d
