@@ -21,7 +21,8 @@ cd /
 git clone https://github.com/thomas2110781014/ssoapt-nginx-certbot-golang-postgres-php.git
 cd ssoapt-nginx-certbot-golang-postgres-php
 
-export AWS=yes
+# uncomment to issue a real let's encrypt cert without --staging
+#export STAGING=0
 
 # get let's encrypt certificate
 sudo -E ./init-letsencrypt.sh
