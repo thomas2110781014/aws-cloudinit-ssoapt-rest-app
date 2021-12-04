@@ -13,7 +13,6 @@ data "aws_ami" "amazon-2" {
 resource "aws_instance" "ec2-dockerhost" {
   ami = data.aws_ami.amazon-2.id
   instance_type = "t3.micro"
-  key_name   = "mysshkey"
 
   vpc_security_group_ids = [aws_security_group.ingress-all-ssh.id, aws_security_group.ingress-all-http.id, aws_security_group.ingress-all-https.id, aws_security_group.ingress-all-8000.id]
 

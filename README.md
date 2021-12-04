@@ -23,8 +23,7 @@ To remove afterwards, use `terraform destroy -auto-approve`.
 ## SSH public key
 
 To be able to ssh into your EC2 instance,
-you can supply your own public ssh key by creating the file `sshkey.tf`
-and entering code like this:
+you can supply your own public ssh key by creating the file `sshkey.tf`:
 
 ```
 resource "aws_key_pair" "mysshkey" {
@@ -33,6 +32,19 @@ resource "aws_key_pair" "mysshkey" {
 }
 ```
 
-Enter your key as value of `public_key`.
+Enter your own key as value of `public_key`.
+
+Also, you must add `key_name = "mysshkey"` to the file `main.tf`.
+
+It should then look like this:
+
+```
+resource "aws_instance" "ec2-dockerhost" {
+  ami = data.aws_ami.amazon-2.id
+  instance_type = "t3.micro"
+  key_name   = "mysshkey"
+
+  ...
+```
 
 
